@@ -20,6 +20,10 @@
         margin-top: 5px;
     }
 
+    &__rating {
+        display: flex;
+    }
+
     &__image {
         max-height: 200px;
         width: 100%;
