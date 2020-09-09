@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './login.scss';
 import { Link } from 'react-router-dom';
+import { auth } from './../../firebase';
 
 function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const signIn = (event) => {
+    event.preventDefault();
+  };
+  const register = (event) => {
+    event.preventDefault();
+    auth.createUserWithEmailAndPassword(email, password);
+  };
+
   return (
     <div className="login">
       <Link to="/">
@@ -16,10 +27,24 @@ function Login() {
         <h1 className="login__title">Sign in</h1>
         <form>
           <h5 className="login__label">E-Mail</h5>
-          <input className="login__input" type="email" />
+          <input
+            className="login__input"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
           <h5 className="login__label">Password</h5>
-          <input className="login__input" type="password" />
-          <button className="login__button login__button--signIn">
+          <input
+            className="login__input"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <button
+            className="login__button login__button--signIn"
+            type="submit"
+            onClick={signIn}
+          >
             Sign In
           </button>
         </form>
@@ -31,7 +56,11 @@ function Login() {
           Conditions of Use & Sale. Please see our Privacy Notice, our Cookies
           Notice and our Interest-Based Ads Notice.
         </p>
-        <button className="login__button login__button--register">
+        <button
+          className="login__button login__button--register"
+          type="submit"
+          onClick={register}
+        >
           Create your Amazon Account
         </button>
       </div>
