@@ -1,0 +1,76 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background: #ffffff;
+
+    &__logo {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        object-fit: contain;
+        width: 100px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &__container {
+        width: 300px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        border: 1px solid #d3d3d3;
+        padding: 20px;
+    }
+
+    &__title {
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    &__label {
+        margin-bottom: 5px;
+    }
+
+    &__input {
+        height: 30px;
+        margin-bottom: 10px;
+        background: #ffffff;
+        width: 98%;
+        outline: none;
+    }
+
+    &__conditionText {
+        margin-top: 15px;
+        font-size: 12px;
+        text-align: justify;
+        text-align-last: center;
+
+        &--warrning {
+            color: red;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+    }
+
+    &__button {
+        border-radius: 2px;
+        width: 100%;
+        height: 30px;
+        border: 1px solid;
+        margin-top: 10px;
+        color: #111111;
+        outline: none;
+        cursor: pointer;
+
+        &--signIn {
+            background: #f0c14b;
+            border-color: #a88734 #9c7e31 #846a29;
+        }
+
+        &--register {
+            border-color: #a9a9a9;
+        }
+    }
+}
