@@ -24,6 +24,10 @@
         display: flex;
     }
 
+    &__star:not(:first-child) {
+        margin-left: 7px;
+    }
+
     &__image {
         max-height: 200px;
         width: 100%;
