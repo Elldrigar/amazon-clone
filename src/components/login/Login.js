@@ -1,17 +1,31 @@
 import React, { useState } from 'react';
 import './login.scss';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { auth } from './../../firebase';
 
 function Login() {
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const signIn = (event) => {
     event.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push('/');
+      })
+      .catch((error) => alert(error.message));
   };
   const register = (event) => {
     event.preventDefault();
-    auth.createUserWithEmailAndPassword(email, password);
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        if (auth) {
+          history.push('/');
+        }
+      })
+      .catch((error) => alert(error.message));
   };
 
   return (
