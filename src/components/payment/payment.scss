@@ -1,0 +1,11 @@
+.payment {
+    background: #ffffff;
+
+    &__checkoutCount {
+        text-align: center;
+        padding: 10px;
+        font-weight: 400;
+        background: #eaeded;
+        border-bottom: 1px solid #d3d3d3;
+    }
+}
