@@ -15,7 +15,7 @@ function Checkout() {
           alt="comercial banner"
         />
         <div>
-          <h3>{user.email}</h3>
+          <h2 className="checkout__helloTitle">Hello, {user?.email} 👋</h2>
           <h2 className="checkout__title">Your shopping Basket</h2>
         </div>
         {basket.map((item) => (
