@@ -1,6 +1,25 @@
 .payment {
     background: #ffffff;
 
+    &__section {
+        display: flex;
+        padding: 20px;
+        margin: 0 20px;
+        border-bottom: 1px solid #eaeded;
+    }
+
+    &__title {
+        flex: 0.2;
+    }
+
+    &__address {
+        flex: 0.8;
+    }
+
+    &__items {
+        flex: 0.8;
+    }
+
     &__checkoutCount {
         text-align: center;
         padding: 10px;
