@@ -1,19 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './payment.scss';
 import { useStateValue } from '../../StateProvider';
 import CheckoutProduct from '../checkout-product/CheckoutProduct';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from '../../reducer';
+import axios from '../axios';
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
   const stripe = useStripe();
   const elements = useElements();
+  const history = useHistory();
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
-  const handleStripeSubmit = (event) => {};
+  const [succeeded, setSucceeded] = useState(false);
+  const [processing, setProcessing] = useState('');
+  const [clientSecret, setClientSecret] = useState(true);
+
+  useEffect(() => {
+    const getClientSecret = async () => {
+      const response = await axios({
+        method: 'post',
+        url: `/payment/create?total=${getBasketTotal(basket) * 100}`,
+      });
+      setClientSecret(response.data.clientSecret);
+    };
+
+    getClientSecret();
+  }, [basket]);
+
+  const handleStripeSubmit = async (event) => {
+    event.preventDefault();
+    setProcessing(true);
+    const payload = await stripe
+      .confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      })
+      .then(({ paymentIntent }) => {
+        setSucceeded(true);
+        setProcessing(false);
+        setError(null);
+        history.replace('/orders');
+      });
+  };
   const handleStripeChange = (event) => {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : '');
@@ -73,7 +106,11 @@ function Payment() {
                   thousandSeparator={true}
                   prefix={'$'}
                 />
+                <button disabled={processing || disabled || succeeded}>
+                  <span>{processing ? 'Processing' : 'Buy Now'}</span>
+                </button>
               </div>
+              {error && <div>{error}</div>}
             </form>
           </div>
         </div>
