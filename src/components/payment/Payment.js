@@ -44,6 +44,10 @@ function Payment() {
         setSucceeded(true);
         setProcessing(false);
         setError(null);
+        dispatch({
+          type: 'CLEAR_BASKET',
+        });
+
         history.replace('/orders');
       });
   };
