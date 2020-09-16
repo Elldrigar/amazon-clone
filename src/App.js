@@ -11,6 +11,7 @@ import Payment from './components/payment/Payment';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import strapiAPI from './stripeConfig';
+import Orders from './components/orders/Orders';
 
 const strapiPromise = loadStripe(strapiAPI);
 
@@ -40,6 +41,9 @@ function App() {
         <Switch>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/orders">
+            <Orders />
           </Route>
           <Route path="/checkout">
             <Header />
