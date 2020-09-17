@@ -30,7 +30,11 @@ function Orders() {
 
   return (
     <div className="orders">
-      <h1 className="orders__title">Your Orders:</h1>
+      {user ? (
+        <h1 className="orders__title">Your Orders:</h1>
+      ) : (
+        <h1 className="orders__title">You haven't done your shopping yet</h1>
+      )}
       <div className="orders__order">
         {orders?.map((order) => (
           <Order order={order} />
