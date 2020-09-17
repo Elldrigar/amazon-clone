@@ -1,5 +1,8 @@
 .payment {
     background: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
 
     &__section {
         display: flex;
@@ -30,5 +33,27 @@
         font-weight: 400;
         background: #eaeded;
         border-bottom: 1px solid #d3d3d3;
+    }
+
+    &__form {
+        max-width: 400px;
+    }
+
+    &__orderTotal {
+        padding-bottom: 20px;
+    }
+
+    &__button {
+        background: #f0c14b;
+        border-radius: 2px;
+        width: 100%;
+        height: 30px;
+        border: 1px solid;
+        margin-top: 10px;
+        border-color: #a88734 #9c7e31 #846a29;
+        color: #111111;
+        outline: none;
+        font-weight: bold;
+        cursor: pointer;
     }
 }

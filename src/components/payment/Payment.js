@@ -105,13 +105,15 @@ function Payment() {
             <h3>Payment Method</h3>
           </div>
           <div className="payment__details">
-            <form onSubmit={handleStripeSubmit}>
+            <form className="payment__form" onSubmit={handleStripeSubmit}>
               <CardElement onChange={handleStripeChange} />
               <div className="payment__priceContainer">
                 <CurrencyFormat
                   renderText={(value) => (
                     <>
-                      <h3>Order Total: {value}</h3>
+                      <h3 className="payment__orderTotal">
+                        Order Total: {value}
+                      </h3>
                     </>
                   )}
                   decimalScale={2}
@@ -120,7 +122,10 @@ function Payment() {
                   thousandSeparator={true}
                   prefix={'$'}
                 />
-                <button disabled={processing || disabled || succeeded}>
+                <button
+                  className="payment__button"
+                  disabled={processing || disabled || succeeded}
+                >
                   <span>{processing ? 'Processing' : 'Buy Now'}</span>
                 </button>
               </div>
