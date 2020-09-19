@@ -45,3 +45,9 @@
         cursor: pointer;
     }
 }
+
+@media screen and (max-width: 900px) {
+    .product {
+        width: 90%;
+    }
+}

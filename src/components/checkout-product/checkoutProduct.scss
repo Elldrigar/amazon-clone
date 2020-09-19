@@ -10,6 +10,7 @@
     }
 
     &__title {
+        margin: 10px 0;
         font-size: 17px;
         font-weight: 800;
     }
@@ -34,5 +35,18 @@
         color: #111111;
         outline: none;
         cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .checkoutProduct {
+        &__image {
+            width: 120px;
+            height: 120px;
+        }
+
+        &__star {
+            font-size: 10px;
+        }
     }
 }

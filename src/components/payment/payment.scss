@@ -40,7 +40,7 @@
     }
 
     &__orderTotal {
-        padding-bottom: 20px;
+        padding: 20px 0;
     }
 
     &__button {
@@ -56,4 +56,32 @@
         font-weight: bold;
         cursor: pointer;
     }
+}
+
+@media screen and (max-width: 900px) {
+    .payment {
+        &__section {
+            flex-direction: column;
+        }
+
+        &__title {
+            margin-bottom: 10px;
+        }
+
+        &__orderTotal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__section {
+            align-items: center;
+        }
+
+        &__form {
+            width: 300px;
+        }
+    }
+
+
 }

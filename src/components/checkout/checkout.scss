@@ -7,6 +7,12 @@
     margin-right: auto;
     max-width: 1500px;
 
+    &__right {
+        display: flex;
+        justify-content: center;
+        max-height: 150px;
+    }
+
     &__ad {
         width: 100%;
         margin-bottom: 10px;
@@ -21,5 +27,11 @@
     &__helloTitle {
         padding-left: 10px;
         font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .checkout {
+        flex-direction: column;
     }
 }

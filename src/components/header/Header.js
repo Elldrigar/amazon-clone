@@ -23,7 +23,11 @@ function Header() {
         />
       </Link>
       <div className="header__search">
-        <input className="header__searchInput" type="text" />
+        <input
+          className="header__searchInput"
+          type="text"
+          placeholder="Serch option disabled"
+        />
         <SearchIcon className="header__searchIcon" />
       </div>
       <div className="header__nav">

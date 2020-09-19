@@ -4,6 +4,7 @@
     position: sticky;
     top: 0;
     height: 60px;
+    width: 100%;
     background: #131921;
     z-index: 100;
 
@@ -66,5 +67,26 @@
     &__basketCount {
         margin-left: 10px;
         margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header {
+        flex-direction: column;
+        height: 160px;
+
+        &__nav {
+            width: 80%;
+        }
+
+        &__logo {
+            margin-bottom: 10px;
+        }
+
+        &__search {
+            width: 80%;
+            order: 5;
+            padding: 10px;
+        }
     }
 }
