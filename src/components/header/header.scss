@@ -47,6 +47,11 @@
         margin-left: 10px;
         margin-right: 10px;
         color: #ffffff;
+
+        &:hover .header__optionLineTwo {
+            color: #cd9042;
+            transform: scale(1.1);
+        }
     }
 
     &__optionLineOne {
@@ -56,12 +61,19 @@
     &__optionLineTwo {
         font-size: 13px;
         font-weight: 800;
+        transition: all 0.2s;
     }
 
     &__optionBasket {
         display: flex;
         align-items: center;
         color: #ffffff;
+        transition: all 0.2s;
+
+        &:hover .header__basketCount {
+            color: #cd9042;
+            transform: scale(1.2);
+        }
     }
 
     &__basketCount {

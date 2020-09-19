@@ -12,6 +12,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import strapiAPI from './stripeConfig';
 import Orders from './components/orders/Orders';
+import Registration from './components/registration/Registration';
+import Footer from './components/footer/Footer';
 
 const strapiPromise = loadStripe(strapiAPI);
 
@@ -20,7 +22,6 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        // user just logged in / the user was logged in
         dispatch({
           type: 'SET_USER',
           user: authUser,
@@ -30,10 +31,9 @@ function App() {
           type: 'SET_USER',
           user: null,
         });
-        // the user is logged out
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>
@@ -45,6 +45,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/registration">
+            <Registration />
           </Route>
           <Route path="/checkout">
             <Header />
@@ -61,6 +64,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

@@ -16,17 +16,6 @@ function Login() {
       })
       .catch((error) => alert(error.message));
   };
-  const register = (event) => {
-    event.preventDefault();
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        if (auth) {
-          history.push('/');
-        }
-      })
-      .catch((error) => alert(error.message));
-  };
 
   return (
     <div className="login">
@@ -70,13 +59,12 @@ function Login() {
           Conditions of Use & Sale. Please see our Privacy Notice, our Cookies
           Notice and our Interest-Based Ads Notice.
         </p>
-        <button
-          className="login__button login__button--register"
-          type="submit"
-          onClick={register}
-        >
-          Create your Amazon Account
-        </button>
+        <span className="login__line">New to Amazon?</span>
+        <Link to="/registration">
+          <button className="login__button login__button--register">
+            Create your Amazon Account
+          </button>
+        </Link>
       </div>
     </div>
   );
