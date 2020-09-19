@@ -7,7 +7,7 @@
   <h1 align="center">Amazon Clone</h1>
 
   <p align="center">
-    ..:: Amazon clon build in React + Firebase (functions and cloud Firestore) ::..
+    ..:: A very simplified Amazon clone, created with React,Firebase and Stripe payments ::..
     <br />
     <br />
     <a href="https://clone-febbe.web.app/">
